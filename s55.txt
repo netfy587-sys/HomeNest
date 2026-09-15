@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tennis — An Informational Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F4EC;
+    --ink:#232019;
+    --clay:#B5502E;
+    --grass:#3F5B3E;
+    --hard:#2E5C82;
+    --line:#DCD5C2;
+    --slate:#6B6255;
+    --panel:#EFEADB;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    margin:0;
+    line-height:1.08;
+    letter-spacing:-0.005em;
+  }
+  p{margin:0 0 1.1em 0;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .measure{max-width:620px;}
+
+  /* surface tag */
+  .surf{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    padding:6px 14px 6px 12px;
+    border-radius:100px;
+    margin-bottom:22px;
+  }
+  .surf .sw{width:9px;height:9px;border-radius:50%;}
+  .surf.grass{background:rgba(63,91,62,0.12);color:var(--grass);}
+  .surf.grass .sw{background:var(--grass);}
+  .surf.clay{background:rgba(181,80,46,0.12);color:var(--clay);}
+  .surf.clay .sw{background:var(--clay);}
+  .surf.hard{background:rgba(46,92,130,0.12);color:var(--hard);}
+  .surf.hard .sw{background:var(--hard);}
+  .surf.neutral{background:rgba(107,98,85,0.14);color:var(--slate);}
+  .surf.neutral .sw{background:var(--slate);}
+
+  /* Hero */
+  .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;background:#1a1712;}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:0.7;}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,23,18,0.1) 0%, rgba(26,23,18,0.4) 55%, rgba(26,23,18,0.95) 100%);}
+  .hero-inner{position:relative;width:100%;padding:0 32px 56px;max-width:1080px;margin:0 auto;color:var(--cream);}
+  .hero-eyebrow{font-size:13px;letter-spacing:0.06em;color:#E4C9A8;font-weight:600;margin-bottom:18px;}
+  .hero h1{font-size:clamp(50px, 8.5vw, 104px);color:var(--cream);}
+  .hero-sub{margin-top:20px;max-width:520px;font-size:18px;color:#E4DCC8;font-family:'Newsreader', serif;font-style:italic;font-weight:400;}
+  .stat-row{display:flex;flex-wrap:wrap;gap:40px;margin-top:44px;padding-top:26px;border-top:1px solid rgba(247,244,236,0.22);}
+  .stat b{display:block;font-family:'Newsreader', serif;font-size:30px;font-weight:600;color:var(--cream);}
+  .stat span{display:block;font-size:12.5px;color:#C9BC9F;margin-top:4px;}
+
+  section{padding:96px 0;}
+  section.tight{padding:70px 0;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .grid-2.rev .col-img{order:2;}
+  .col-text h2{font-size:clamp(30px,3.6vw,44px);margin-bottom:22px;}
+  figure{margin:0;}
+  figcaption{font-size:13px;color:var(--slate);margin-top:10px;font-style:italic;}
+  .photo{border-radius:2px;overflow:hidden;}
+  .photo img{width:100%;height:100%;object-fit:cover;}
+
+  hr.rule{border:none;border-top:1px solid var(--line);margin:0;}
+
+  .lede{padding:88px 0 40px;}
+  .lede p.big{font-family:'Newsreader', serif;font-size:clamp(22px,2.6vw,30px);font-weight:500;line-height:1.42;max-width:800px;}
+  .lede .measure{color:var(--slate);font-size:16px;}
+
+  /* scoring ladder */
+  .ladder{margin-top:40px;border-top:1px solid var(--line);}
+  .step{display:grid;grid-template-columns:90px 1fr;gap:22px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .step .call{font-family:'Newsreader', serif;font-size:22px;font-weight:600;color:var(--clay);}
+  .step p{margin:0;font-size:15px;color:var(--ink);}
+
+  /* fact grid */
+  .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px;}
+  .fact{background:var(--cream);padding:28px 24px;}
+  .fact b.num{display:block;font-family:'Newsreader', serif;font-size:30px;color:var(--ink);margin-bottom:8px;}
+  .fact p{font-size:14px;margin:0;color:var(--slate);}
+
+  /* surface comparison */
+  .surface-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px;}
+  .surface-card{padding:28px 24px;}
+  .surface-card.grass{background:rgba(63,91,62,0.07);}
+  .surface-card.clay{background:rgba(181,80,46,0.07);}
+  .surface-card.hard{background:rgba(46,92,130,0.07);}
+  .surface-card h3{font-size:20px;margin-bottom:4px;}
+  .surface-card .home{font-size:12.5px;color:var(--slate);margin-bottom:14px;}
+  .surface-card ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink);}
+  .surface-card li{margin-bottom:8px;}
+
+  /* timeline */
+  .timeline{margin-top:30px;padding-left:26px;border-left:2px dashed var(--line);}
+  .t-row{position:relative;padding:0 0 28px 24px;}
+  .t-row::before{content:"";position:absolute;left:-33px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--cream);border:2px solid var(--slate);}
+  .t-row.now::before{background:var(--clay);border-color:var(--clay);width:13px;height:13px;left:-34.5px;top:2px;}
+  .t-yr{font-family:'Newsreader', serif;font-size:20px;font-weight:600;}
+  .t-row.now .t-yr{color:var(--clay);}
+  .t-meta{font-size:14.5px;color:var(--slate);margin-top:2px;}
+
+  .finish-media{border-radius:2px;overflow:hidden;margin-top:40px;}
+  .finish-media img{width:100%;max-height:440px;object-fit:cover;}
+
+  footer{padding:48px 0 64px;border-top:1px solid var(--line);}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--slate);}
+
+  @media (max-width:820px){
+    .grid-2{grid-template-columns:1fr;gap:32px;}
+    .grid-2.rev .col-img{order:0;}
+    .fact-grid, .surface-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 22px;}
+    .hero-inner{padding:0 22px 40px;}
+    .step{grid-template-columns:70px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://images.pexels.com/photos/342360/pexels-photo-342360.jpeg?auto=compress&w=1600&h=1400&dpr=1" alt="A tennis player mid-swing on an outdoor court">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">An informational guide</div>
+    <h1>Tennis</h1>
+    <p class="hero-sub">The only major sport where zero has its own name, and where the surface underfoot changes the entire character of the game.</p>
+    <div class="stat-row">
+      <div class="stat"><b>1877</b><span>First Wimbledon Championships</span></div>
+      <div class="stat"><b>Love</b><span>The score for zero</span></div>
+      <div class="stat"><b>263 km/h</b><span>Fastest serve ever recorded</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="lede">
+  <div class="wrap">
+    <div class="surf neutral"><span class="sw"></span>PRE-MATCH</div>
+    <p class="big">Tennis is one of the few sports played seriously on three completely different surfaces, each rewarding a different style of play so strongly that entire careers are built around one of them.</p>
+    <p class="measure">This page covers the game's odd scoring system, where the sport came from, what changes physically between grass, clay, and hard courts, and how far technology has already reached into a sport built on tradition. Nothing here is for sale — it's simply an account of the game.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SCORING -->
+<section>
+  <div class="wrap">
+    <div class="surf neutral"><span class="sw"></span>THE SCORING</div>
+    <h2 style="max-width:640px;">Zero is called "love," and nobody is fully sure why</h2>
+    <p class="measure" style="margin-top:18px;">Tennis scores within a game in an order that matches no other sport: 0, 15, 30, 40, game — not 1, 2, 3, 4. Several theories exist for why, and none is proven. The most repeated explanation ties the point values to a clock face, with the score climbing in quarter-hours toward 60; another points to the French "l'oeuf" (the egg), a zero-shaped visual pun that may have become "love" in English. Historians simply don't have a confirmed answer.</p>
+    <div class="ladder">
+      <div class="step"><div class="call">Love</div><p>Zero points. Possibly from the egg-shaped zero ("l'oeuf" in French), possibly unrelated — the origin isn't settled.</p></div>
+      <div class="step"><div class="call">15</div><p>The first point won in a game.</p></div>
+      <div class="step"><div class="call">30</div><p>The second point — following the same quarter-hour logic as 15.</p></div>
+      <div class="step"><div class="call">40</div><p>The third point. It should be "45" to keep the pattern, but was shortened at some point in the sport's history for reasons that, again, aren't fully documented.</p></div>
+      <div class="step"><div class="call">Deuce</div><p>A 40–40 tie. A player must then win two points in a row — advantage, then game — to close it out.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ORIGINS -->
+<section>
+  <div class="wrap grid-2 rev">
+    <div class="col-text">
+      <div class="surf neutral"><span class="sw"></span>ORIGINS</div>
+      <h2>From a French monastery courtyard to a London garden party</h2>
+      <p>Tennis traces back to "jeu de paume" ("game of the palm"), played in French monastery courtyards as early as the 12th century, where players struck a ball with a bare or gloved hand rather than a racket. Many of the sport's oddities come from this period — including the call of "tenez" ("take this" or "here it comes"), which historians believe is the likely root of the word "tennis" itself.</p>
+      <p>The modern outdoor game — "lawn tennis" — was patented in 1874 by British army officer Walter Wingfield, who marketed a box set with a net, rackets, and rules intended for garden parties. The All England Club, previously devoted to croquet, held the first Wimbledon Championships in 1877, and the sport spread quickly through the same country-club culture that croquet had occupied.</p>
+    </div>
+    <div class="col-img">
+      <figure class="photo">
+        <img src="https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&w=1000&h=1000&dpr=1" alt="A tennis racket and ball resting on a red clay court">
+      </figure>
+      <figcaption>Clay, grass, and hard courts each descend from a different era of the sport's history.</figcaption>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- THE FOUR MAJORS AS CALENDAR -->
+<section>
+  <div class="wrap">
+    <div class="surf neutral"><span class="sw"></span>THE SEASON</div>
+    <h2 style="max-width:700px;">One sport, three surfaces, four majors</h2>
+    <p class="measure" style="margin-top:16px;">The tennis calendar runs through four Grand Slam tournaments, each on a different surface, and top players have to adjust their entire game as the year moves from one to the next.</p>
+
+    <div class="surface-grid">
+      <div class="surface-card hard">
+        <h3>Australian Open</h3>
+        <div class="home">January · Hard court · Melbourne</div>
+        <ul>
+          <li>Opens the season on Melbourne's Rebound Ace and Plexicushion courts, played in some of the hottest conditions of any major.</li>
+          <li>A true medium-pace surface — favors all-around players over pure specialists.</li>
+        </ul>
+      </div>
+      <div class="surface-card clay">
+        <h3>Roland Garros</h3>
+        <div class="home">May–June · Red clay · Paris</div>
+        <ul>
+          <li>The ball sits up higher and slower off clay than any other surface, stretching rallies and rewarding heavy topspin.</li>
+          <li>The only major that still relies on umpires checking the physical ball mark left in the clay rather than full electronic line calling.</li>
+        </ul>
+      </div>
+      <div class="surface-card grass">
+        <h3>Wimbledon</h3>
+        <div class="home">June–July · Grass · London</div>
+        <ul>
+          <li>The fastest, lowest-bouncing surface, historically the home of serve-and-volley tennis.</li>
+          <li>From 2025, Wimbledon retired its human line judges after 147 years in favor of full electronic line calling.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="surface-grid" style="margin-top:1px;">
+      <div class="surface-card hard" style="grid-column:1 / -1;">
+        <h3>US Open</h3>
+        <div class="home">August–September · Hard court · New York</div>
+        <ul>
+          <li>Closes the season on a fast hard court, often at night under lights, in front of the loudest crowds on tour.</li>
+          <li>Was among the first majors to adopt electronic line calling on show courts, well ahead of Wimbledon.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- THE SERVE / PHYSICS -->
+<section>
+  <div class="wrap grid-2">
+    <div class="col-text">
+      <div class="surf clay"><span class="sw"></span>THE SERVE</div>
+      <h2>The fastest moving object in mainstream sport</h2>
+      <p>A tennis serve is, by most measures, the fastest a ball moves in any widely played sport — faster than a baseball pitch, a cricket delivery, or a hockey slap shot. The outright record belongs to Australia's Sam Groth, clocked at 263.4 km/h (163.7 mph) in 2012, though that mark came at a lower-tier event; the fastest serve at a top-level ATP match belongs to John Isner, at 253 km/h (157.2 mph) during the 2016 Davis Cup.</p>
+      <p>Spin does as much work as speed. A "kick" serve uses heavy topspin to make the ball leap unpredictably off the bounce, while a slice serve curves sideways through the air, pulling a returner wide off the court. Both rely on precise racket-face angle at contact — a difference measured in single degrees separates a clean ace from a fault.</p>
+    </div>
+    <div class="col-img">
+      <figure class="photo">
+        <img src="https://images.pexels.com/photos/1432034/pexels-photo-1432034.jpeg?w=1000&h=1000&dpr=1" alt="A tennis player in motion on a clay court">
+      </figure>
+      <figcaption>Clay's slower bounce rewards heavy topspin over raw serve speed.</figcaption>
+    </div>
+  </div>
+  <div class="fact-grid">
+    <div class="fact"><b class="num">263 km/h</b><p>The outright fastest serve ever recorded, by Sam Groth in 2012.</p></div>
+    <div class="fact"><b class="num">253 km/h</b><p>The fastest serve recognized at top-tier ATP level, by John Isner in 2016.</p></div>
+    <div class="fact"><b class="num">11h 5m</b><p>The length of the longest match in tennis history — Isner vs. Mahut, Wimbledon 2010, played over three days.</p></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- TECHNOLOGY -->
+<section class="tight">
+  <div class="wrap">
+    <div class="surf hard"><span class="sw"></span>THE LINE CALL</div>
+    <h2 style="max-width:680px;font-size:clamp(28px,3.4vw,42px);">The slow removal of the human eye</h2>
+    <p class="measure" style="margin-top:16px;">Electronic line calling has spread through tennis gradually rather than all at once, and the order in which it arrived says something about each event's relationship to tradition.</p>
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-yr">2006</div>
+        <div class="t-meta">The US Open and Wimbledon introduce Hawk-Eye as a limited player challenge system, used only when a call is disputed.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-yr">2021</div>
+        <div class="t-meta">The Australian Open becomes the first Grand Slam to remove line judges entirely, using full electronic calling on every court.</div>
+      </div>
+      <div class="t-row">
+        <div class="t-yr">2022</div>
+        <div class="t-meta">The US Open follows, ending the on-court role of human line judges.</div>
+      </div>
+      <div class="t-row now">
+        <div class="t-yr">2025</div>
+        <div class="t-meta">Wimbledon retires all 300 of its line judges after 147 years, adopting full electronic line calling. The French Open, played on clay where a ball's mark is still physically visible, remains the only major still using human line judges.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="tight">
+  <div class="wrap">
+    <div class="surf neutral"><span class="sw"></span>MATCH POINT</div>
+    <h2 style="max-width:680px;font-size:clamp(28px,3.4vw,42px);">A sport still arguing with its own traditions</h2>
+    <p class="measure" style="margin-top:16px;">Tennis is unusual in how visibly it wrestles with change: a scoring system nobody can fully explain, a Grand Slam calendar that still asks its best players to master three different surfaces in a single season, and a decades-long, court-by-court transition from human line judges to cameras. Whatever comes next, it will likely arrive the way electronic line calling did — one major at a time, with the French Open holding out longest.</p>
+    <figure class="finish-media">
+      <img src="https://images.pexels.com/photos/342360/pexels-photo-342360.jpeg?auto=compress&w=1400" alt="A tennis player following through on a shot on an outdoor court">
+    </figure>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>An informational overview of tennis history, scoring, surfaces, and officiating technology. No products, players, or events are being promoted on this page.</div>
+    <div>Sources: Wimbledon/All England Club, ITF, ATP and WTA history archives, Guinness World Records.</div>
+  </div>
+</footer>
+
+</body>
+</html>
